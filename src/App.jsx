@@ -13,13 +13,13 @@ function App() {
 
   return (
     <Router>
-      <div className={`container ${dark === true ? 'dark' : ''}`}>
-        <div className='app'>
+      <section className={`container ${dark === true ? 'dark' : ''}`}>
+        <div className='app-notes'>
           <Header dark={dark} toggleDark={toggleDark}/>
           <Route path="/" component={NotesPage} exact />
           <Route path="/note/:id" component={NoteDetail}/>
         </div>
-      </div>
+      </section>
     </Router>
   )
 }
