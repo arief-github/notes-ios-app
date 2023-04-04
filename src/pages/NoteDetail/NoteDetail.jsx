@@ -1,10 +1,20 @@
-import React from 'react'
-import notes from '../../assets/data';
+import React, { useState, useEffect } from 'react'
 
 const NoteDetail = ({ match }) => {
   let id = match.params.id;
-  let note = notes.find(note => note.id == id);
-  console.log(note.body)
+  
+  let [note, setNote] = useState(null);
+
+  const getNote = async () => {
+    let response = await fetch(`http://localhost:3000/notes/${id}`)
+    let data = await response.json();
+
+    setNote(data);
+  }
+
+  useEffect(() => {
+    getNote();
+  }, [id])
 
   return (
     <div>
