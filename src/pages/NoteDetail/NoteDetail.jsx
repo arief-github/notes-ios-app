@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { FaArrowLeft } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 const NoteDetail = ({ match }) => {
   let id = match.params.id;
@@ -17,7 +19,12 @@ const NoteDetail = ({ match }) => {
   }, [id])
 
   return (
-    <div>
+    <div className='note'>
+      <div className='note-header'>
+        <Link to="/">
+          <FaArrowLeft/>
+        </Link>
+      </div>
       <p>{note?.body}</p>
     </div>
   )
